@@ -71,11 +71,11 @@ export default function Navbar() {
   data-tooltip-place="top">
       <img className='w-8 h-8 rounded-full' src={user.photoURL} alt="" />
       </a>
-      <Link onClick={handleSignOut} className="btn text-[#0a3d62] font-bold bg-[#d4af37] ml-4">LogOut</Link>
+      <Link onClick={handleSignOut} className="btn border-2 rounded-3xl text-white font-semibold bg-[#4A90E2] ml-3">LogOut</Link>
       </>
       :<>
-      <Link to='/login' className="btn text-[#0a3d62] font-bold bg-[#d4af37]">Login</Link>
-      <Link to='/register' className="btn text-[#0a3d62] font-bold bg-[#d4af37] ml-4">Register</Link>
+      <Link to='/login' className="btn border-2 rounded-3xl text-white font-semibold bg-[#4A90E2]">Login</Link>
+      <Link to='/register' className="btn border-2 rounded-3xl text-white font-semibold bg-[#4A90E2] ml-3">Register</Link>
       </>
     }
     <ThemeController></ThemeController>
