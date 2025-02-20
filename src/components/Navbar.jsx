@@ -25,7 +25,8 @@ export default function Navbar() {
   {
     user && 
     <>
-    <NavLink to='/' className='lg:ml-3 font-semibold text-gray-400'>Home</NavLink>
+    <NavLink to='/' className='lg:ml-3 font-semibold text-black'>Home</NavLink>
+    <NavLink to='/addTask' className='lg:ml-3 font-semibold text-black'>Add Task</NavLink>
     </>
   }
     

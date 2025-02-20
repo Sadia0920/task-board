@@ -3,6 +3,7 @@ import MainLayout from "../layouts/MainLayout"
 import Login from "../pages/Login"
 import Register from "../pages/Register"
 import Home from "../pages/Home"
+import AddTask from "../pages/AddTask"
 import Error from "../pages/Error"
 
 const router =  createBrowserRouter([
@@ -14,6 +15,10 @@ const router =  createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
+            },
+            {
+                path: '/addTask',
+                element: <AddTask></AddTask>,
             },
             {
                 path: '/login',
