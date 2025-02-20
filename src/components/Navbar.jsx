@@ -27,6 +27,7 @@ export default function Navbar() {
     <>
     <NavLink to='/' className='lg:ml-3 font-semibold text-black'>Home</NavLink>
     <NavLink to='/addTask' className='lg:ml-3 font-semibold text-black'>Add Task</NavLink>
+    <NavLink to='/myTask' className='lg:ml-3 font-semibold text-black'>My Task</NavLink>
     </>
   }
     
