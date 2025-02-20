@@ -1,8 +1,8 @@
 function Navbar() {
 
     return (
-      <div>
-       <div className="navbar bg-base-100">
+      <div  className="bg-[#10B981]">
+       <div className="navbar w-10/12 mx-auto">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -33,7 +33,7 @@ function Navbar() {
         <li><a>Item 3</a></li>
       </ul>
     </div>
-    <a className="btn btn-ghost text-xl">daisyUI</a>
+    <a className="btn btn-ghost text-xl"><i className="fa-solid fa-list-check"></i>Task-Board</a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
