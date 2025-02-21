@@ -5,6 +5,7 @@ export default function TaskCard({data}) {
 const {_id,yourName,email,title,category,description,timestamp} = data;
 
   return (
+
   <div className="card bg-base-100 w-full shadow-xl">
   <div className="card-body">
     <h2 className="card-title text-gray-900">{title}</h2>
