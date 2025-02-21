@@ -33,48 +33,12 @@ export default function MyTask() {
           text: "Your Task has been deleted.",
           icon: "success"
         });
-        // const remainingNote = noteData.filter(note => note._id !== _id)
-        // setNoteData(remainingNote)
           }
         })
       }
     });
   }
 
-    
-//   const setLoadedReviews = loadedReviews.filter((email) => email.email == user.email)
-//   const [reviews,setReviews]=useState(setLoadedReviews)
-
-//   const handleDeleteUser = (_id) => {
-//     Swal.fire({
-//       title: "Are you sure?",
-//       text: "You won't be able to revert this!",
-//       icon: "warning",
-//       showCancelButton: true,
-//       confirmButtonColor: "#3085d6",
-//       cancelButtonColor: "#d33",
-//       confirmButtonText: "Yes, delete it!"
-//     }).then((result) => {
-//       if (result.isConfirmed) {
-//         fetch(`https://game-freak-reviews-server.vercel.app/reviews/${_id}`,{
-//           method : 'DELETE'
-//         })
-//         .then(res => res.json())
-//         .then(data => {
-          // console.log(data)
-//           if(data.deletedCount > 0){
-//           Swal.fire({
-//           title: "Deleted!",
-//           text: "Your file has been deleted.",
-//           icon: "success"
-//         });
-//         const remaining = reviews.filter(review => review._id !== _id)
-//         setReviews(remaining)
-//           }
-//         })
-//       }
-//     });
-//   }
   return (
     <div className='w-10/12 mx-auto py-7'>
       <div className="overflow-x-auto">
