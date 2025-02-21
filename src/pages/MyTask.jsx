@@ -4,6 +4,7 @@ import { AuthContext } from '../provider/AuthProvider';
 import useTask from '../hooks/usetask';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 export default function MyTask() {
   const {user} = useContext(AuthContext)
@@ -100,7 +101,7 @@ export default function MyTask() {
       <td>
 
       {/* update button */}
-      {/* <Link to={`/dashboard/updateNotes/${item._id}`}><button className='btn mr-2'><i className="fa-regular fa-pen-to-square"></i></button></Link> */}
+      <Link to={`/updateTask/${item._id}`}><button className='btn mr-2'><i className="fa-regular fa-pen-to-square"></i></button></Link>
       {/* delete button */}
       <button onClick={()=>handleDeleteTask(item._id)} className='btn mt-2 lg:mt-0'><i className="fa-regular fa-trash-can"></i></button> 
       </td>

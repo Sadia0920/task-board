@@ -6,6 +6,8 @@ import Home from "../pages/Home"
 import AddTask from "../pages/AddTask"
 import MyTask from "../pages/MyTask"
 import Error from "../pages/Error"
+import PrivateRoute from './PrivateRoute';
+import UpdateTask from "../pages/Updatetask"
 
 const router =  createBrowserRouter([
     {
@@ -15,16 +17,21 @@ const router =  createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home></Home>,
+                element: <PrivateRoute><Home></Home></PrivateRoute>,
             },
             {
                 path: '/addTask',
-                element: <AddTask></AddTask>,
+                element: <PrivateRoute><AddTask></AddTask></PrivateRoute>,
             },
             {
                 path: '/myTask',
-                element: <MyTask></MyTask>,
+                element: <PrivateRoute><MyTask></MyTask></PrivateRoute>,
             },
+            {
+                path:'/updateTask/:id',
+                element:<PrivateRoute><UpdateTask></UpdateTask></PrivateRoute>,
+                loader: ({params})=>fetch(`http://localhost:5000/tasks/${params.id}`)
+              },
             {
                 path: '/login',
                 element: <Login></Login>,
