@@ -1,11 +1,15 @@
 import React, { useContext, useState } from 'react'
 import { AuthContext } from '../provider/AuthProvider';
-// import Swal from 'sweetalert2';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 export default function AddTask() {
 
   const {user} = useContext(AuthContext);
   const [selectedValue, setSelectedValue] = useState("");
+  const navigate = useNavigate()
+
   const handleChange = (event) => {
     event.preventDefault();
     setSelectedValue(event.target.value);
@@ -18,10 +22,36 @@ export default function AddTask() {
         const title = form.title.value;
         const category = form.category.value;
         const description = form.description.value;
-        const timestamp = form.timestamp.value;
-        const newTask = {yourName,email,title,category,description,timestamp}
+        // const timestamp = form.timestamp.value;
+        const newTask = {yourName,email,title,category,description, timestamp: new Date().toISOString(), }
         
         console.log(newTask)
+
+        // send data to the server
+    try{
+        axios.post('http://localhost:5000/tasks', newTask)
+        .then(res => {
+        // console.log(res.data)
+          if(res.data.insertedId){
+              Swal.fire({
+                  title: 'Success',
+                  text: 'Task created successfully',
+                  icon: 'success',
+                  confirmButtonText: 'Ok'
+                })
+          }
+          form.reset()
+          navigate('/')
+      })
+    }
+    catch (err) {
+        Swal.fire({
+            title: 'Error',
+            text: 'Task created error',
+            icon: 'error',
+            confirmButtonText: 'Ok'
+          })
+    }
         // send data to the server
         // fetch('https://game-freak-reviews-server.vercel.app/reviews',{
         //     method : 'POST',
@@ -75,7 +105,7 @@ export default function AddTask() {
                 <div className="label">
                 <span className="label-text font-bold">Title</span>
                 </div>
-                <input type="text" placeholder="Enter Title" name='Title' className="input input-bordered w-full" required />
+                <input type="text" placeholder="Enter Title" name='title' className="input input-bordered w-full" required />
                 </label>
             </div>
             <div className='md:w-1/2'>
@@ -102,7 +132,7 @@ export default function AddTask() {
                 </label>
             </div>
         </div>
-        <div className='mt-6'>
+        {/* <div className='mt-6'>
             <div className='md:w-full'>
                 <label className="form-control">
                 <div className="label">
@@ -111,7 +141,7 @@ export default function AddTask() {
                 <input type="number" placeholder="Enter Timestamp" name='timestamp' className="input input-bordered w-full" required/>
                 </label>
             </div>
-        </div>
+        </div> */}
         <div className='mt-6'>
             <input type="submit" value="Add Task" className="btn w-full font-bold border-white text-white  bg-[#4A90E2]" />
         </div>

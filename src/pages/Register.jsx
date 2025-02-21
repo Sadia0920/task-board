@@ -20,7 +20,7 @@ export default function Register() {
     const photo = form.photo.value;
     const password = form.password.value;
 
-    const newUser = {name,photo,email,password}
+    const newUser = {name,email}
     // console.log(newUser);
 
     setErrorMessage('')
