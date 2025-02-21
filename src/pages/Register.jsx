@@ -3,6 +3,7 @@ import { AuthContext } from '../provider/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Swal from 'sweetalert2';
+import axios from 'axios';
 
 export default function Register() {
 
@@ -37,42 +38,49 @@ export default function Register() {
       return;
     }
 
-    // CreateUser
-    createUser(email,password)
-    .then(result => {
-      setUser(result.user)
-      form.reset();
-      navigate('/')
-      Swal.fire({
-        title: 'Success',
-        text: 'Register Successfully',
-        icon: 'success',
-        confirmButtonText: 'Done'
+      // CreateUser
+      createUser(email,password)
+      .then(result => {
+        setUser(result.user)
+  
+        // UpdateUser
+      const profile = {
+        displayName: name,
+        photoURL: photo
+      }
+      updateUserInfo(profile)
+      .then((res)=>{
+        axios.post('http://localhost:5000/users', newUser)
+        .then(res => {
+        if(res.data.insertedId){
+          // console.log('user added to the database');
+          form.reset();
+          Swal.fire({
+            title: 'Success',
+            text: 'User Registered Successfully',
+            icon: 'success',
+            confirmButtonText: 'Done'
+          })
+          navigate('/');
+        }
+        // console.log(res.user)
       })
-    // UpdateUser
-    const profile = {
-      displayName: name,
-      photoURL: photo
-    }
-    updateUserInfo(profile)
-    .then((res)=>{
-      // console.log(res.user)
-    })
-    .catch(error => {
-      setErrorMessage(error.message)
-    })
-    })
-    .catch(error => {
-      // console.log(error.message)
-      setErrorMessage(error.message)
-      setUser(null)
-      Swal.fire({
-        title: 'Error',
-        text: error.message,
-        icon: 'error',
-        confirmButtonText: 'Ok'
+      .catch(error => {
+        setErrorMessage(error.message)
       })
-    })
+      })
+      })
+      .catch(error => {
+        // console.log(error.message)
+        setErrorMessage(error.message)
+        setUser(null)
+        Swal.fire({
+          title: 'Error',
+          text: error.message,
+          icon: 'error',
+          confirmButtonText: 'Ok'
+        })
+       })
 
   }
   return (

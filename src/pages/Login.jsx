@@ -3,6 +3,7 @@ import { AuthContext } from '../provider/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Swal from 'sweetalert2';
+import axios from 'axios';
 
 export default function Login() {
   const {signInUser,signInWithGoogle,setUser} = useContext(AuthContext);
@@ -45,15 +46,29 @@ export default function Login() {
   }
   const handleGoogleLogin = () => {
     signInWithGoogle()
-    .then(result => {
-      // console.log(result.user)
-      setUser(result.user)
-      navigate('/')
-    })
-    .catch(error => {
-      // console.log(error)
-      setUser(null)
-    })
+      .then(result => {
+        setUser(result.user)
+        // console.log(result.user)
+        const userInfo = {
+          email: result.user?.email,
+          name: result.user?.displayName,
+        }
+        axios.post('http://localhost:5000/users', userInfo)
+        .then(res => {
+          // console.log(res.data)
+          Swal.fire({
+            title: 'Success',
+            text: 'Login With Google Successfully',
+            icon: 'success',
+            confirmButtonText: 'Done'
+          })
+          navigate('/');
+        })
+      })
+      .catch(error => {
+        // console.log(error)
+        setUser(null)
+      })
   }
   return (
     <div className='my-7 w-11/12 lg:w-6/12 mx-auto'>
