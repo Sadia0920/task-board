@@ -1,12 +1,9 @@
-import React, { useState } from 'react'
-import { NavLink} from 'react-router-dom'
 import useTask from '../hooks/usetask';
 import TaskCard from '../components/Taskcard';
 
 export default function Home() {
 
   const [task,refetch] = useTask();
-  console.log(task)
 
   const todoTasks = task.filter((item) => item.category === 'To-Do')
 
@@ -17,7 +14,7 @@ export default function Home() {
   return (
     <div className='w-10/12 mx-auto my-4'>
     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center gap-6'>
-    <div className='md:min-h-screen bg-slate-300'>
+    <div className='md:min-h-screen bg-blue-100'>
       <ul className='menu'>
         <li className='text-center text-2xl font-bold text-gray-900 my-3'>To-Do</li>
       </ul>
@@ -28,7 +25,7 @@ export default function Home() {
       </div>
     </div>
 
-    <div className='md:min-h-screen bg-slate-300'>
+    <div className='md:min-h-screen bg-blue-100'>
       <ul className='menu'>
         <li className='text-center text-2xl font-bold text-gray-900 my-3'>In Progress</li>
       </ul>
@@ -39,7 +36,7 @@ export default function Home() {
       </div>
     </div>
 
-    <div className='md:min-h-screen bg-slate-300'>
+    <div className='md:min-h-screen bg-blue-100'>
       <ul className='menu'>
         <li className='text-center text-2xl font-bold text-gray-900 my-3'>Done</li>
       </ul>

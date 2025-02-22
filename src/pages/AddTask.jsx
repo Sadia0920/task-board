@@ -55,7 +55,7 @@ export default function AddTask() {
         }
   return (
     <div className='w-10/12 mx-auto py-7'>
-        <div className=' bg-base-200 rounded-xl p-10'>
+        <div className=' bg-blue-100 rounded-xl p-10'>
             <h2 className='text-center text-4xl font-bold text-[#374151]'>Add Task</h2>
             <p className='text-center text-[#1B1A1AB3] w-9/12 mx-auto mt-8'>It is a dedicated area where user can add their task.</p>
         <form onSubmit={handleAddTask}>
@@ -66,7 +66,7 @@ export default function AddTask() {
                 <div className="label">
                 <span className="label-text font-bold">Your Name</span>
                 </div>
-                <input type="text" readOnly defaultValue={user.displayName}  placeholder="Enter Your Name" name='yourName' className="input input-bordered w-full" required/>
+                <input type="text" readOnly defaultValue={user.displayName}  placeholder="Enter Your Name" name='yourName' className="input input-bordered w-full text-black" required/>
                 </label>
             </div>
             <div className='md:w-1/2'>
@@ -74,7 +74,7 @@ export default function AddTask() {
                 <div className="label">
                 <span className="label-text font-bold">Your Email</span>
                 </div>
-                <input type="email" readOnly defaultValue={user.email} placeholder="Enter Your Email" name='email' className="input input-bordered w-full" required/>
+                <input type="email" readOnly defaultValue={user.email} placeholder="Enter Your Email" name='email' className="input input-bordered w-full text-black" required/>
                 </label>
             </div>
         </div>
@@ -84,7 +84,7 @@ export default function AddTask() {
                 <div className="label">
                 <span className="label-text font-bold">Title</span>
                 </div>
-                <input type="text" placeholder="Enter Title" name='title' className="input input-bordered w-full" required />
+                <input type="text" placeholder="Enter Title" name='title' className="input input-bordered w-full text-black" required />
                 </label>
             </div>
             <div className='md:w-1/2'>
@@ -92,7 +92,7 @@ export default function AddTask() {
                <div className="label">
                <span className="label-text font-bold">Category</span>
                </div>
-               <select id="dropdown" name='category' value={selectedValue} onChange={handleChange} className='input input-bordered w-full' >
+               <select id="dropdown" name='category' value={selectedValue} onChange={handleChange} className='input input-bordered w-full text-black' >
                <option value="" disabled>Select an option</option>
                <option value="To-Do">To-Do</option>
                <option value="In Progress">In Progress</option>
@@ -107,20 +107,11 @@ export default function AddTask() {
                 <div className="label">
                 <span className="label-text font-bold">Description</span>
                 </div>
-                <textarea type="text" placeholder="Enter Description" name='description' className="textarea" required></textarea>
+                <textarea type="text" placeholder="Enter Description" name='description' className="textarea text-black" required></textarea>
                 </label>
             </div>
         </div>
-        {/* <div className='mt-6'>
-            <div className='md:w-full'>
-                <label className="form-control">
-                <div className="label">
-                <span className="label-text font-bold">Timestamp</span>
-                </div>
-                <input type="number" placeholder="Enter Timestamp" name='timestamp' className="input input-bordered w-full" required/>
-                </label>
-            </div>
-        </div> */}
+      
         <div className='mt-6'>
             <input type="submit" value="Add Task" className="btn w-full font-bold border-white text-white  bg-[#4A90E2]" />
         </div>
