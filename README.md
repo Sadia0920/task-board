@@ -3,7 +3,7 @@
 ## Short Description
 Task Board is a task management application built using React for the frontend and MongoDB for the backend. It allows users to create, update, and Delete tasks across different categories: To-Do, In Progress, and Done.
 
-## 🚀 Live Site URL : 
+## 🚀 Live Site URL : https://task-board-ce2fe.web.app
 
 ## 📦 Dependencies
 

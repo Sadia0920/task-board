@@ -22,7 +22,7 @@ export default function MyTask() {
       confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:5000/tasks/${_id}`)
+        axios.delete(`https://task-board-server-two.vercel.app/tasks/${_id}`)
         .then(res => {
           // console.log(res.data)
           if(res.data.deletedCount > 0){

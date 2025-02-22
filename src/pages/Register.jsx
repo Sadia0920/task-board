@@ -50,7 +50,7 @@ export default function Register() {
       }
       updateUserInfo(profile)
       .then((res)=>{
-        axios.post('http://localhost:5000/users', newUser)
+        axios.post('https://task-board-server-two.vercel.app/users', newUser)
         .then(res => {
         if(res.data.insertedId){
           // console.log('user added to the database');
@@ -61,7 +61,7 @@ export default function Register() {
             icon: 'success',
             confirmButtonText: 'Done'
           })
-          navigate('/');
+          navigate('/home');
         }
         // console.log(res.user)
       })

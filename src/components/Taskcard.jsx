@@ -21,7 +21,7 @@ const handleDeleteTask = (_id) => {
     confirmButtonText: "Yes, delete it!"
   }).then((result) => {
     if (result.isConfirmed) {
-      axios.delete(`http://localhost:5000/tasks/${_id}`)
+      axios.delete(`https://task-board-server-two.vercel.app/tasks/${_id}`)
       .then(res => {
         // console.log(res.data)
         if(res.data.deletedCount > 0){
@@ -39,7 +39,7 @@ const handleDeleteTask = (_id) => {
 
 
 const handleMakeInProgress = (_id) => {
-  axios.patch(`http://localhost:5000/tasks/inProgress/${_id}`)
+  axios.patch(`https://task-board-server-two.vercel.app/tasks/inProgress/${_id}`)
   .then(res => {
     // console.log(res.data)
     if(res.data.modifiedCount > 0){
@@ -55,7 +55,7 @@ const handleMakeInProgress = (_id) => {
 }
 
 const handleMakeDone = (_id) => {
-  axios.patch(`http://localhost:5000/tasks/done/${_id}`)
+  axios.patch(`https://task-board-server-two.vercel.app/tasks/done/${_id}`)
   .then(res => {
     // console.log(res.data)
     if(res.data.modifiedCount > 0){

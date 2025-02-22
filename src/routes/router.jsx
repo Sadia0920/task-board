@@ -8,6 +8,7 @@ import MyTask from "../pages/MyTask"
 import Error from "../pages/Error"
 import PrivateRoute from './PrivateRoute';
 import UpdateTask from "../pages/Updatetask"
+import Welcomepage from "../pages/WelcomePage"
 
 const router =  createBrowserRouter([
     {
@@ -17,6 +18,10 @@ const router =  createBrowserRouter([
         children: [
             {
                 path: '/',
+                element: <Welcomepage></Welcomepage>,
+            },
+            {
+                path: '/home',
                 element: <PrivateRoute><Home></Home></PrivateRoute>,
             },
             {
@@ -30,7 +35,7 @@ const router =  createBrowserRouter([
             {
                 path:'/updateTask/:id',
                 element:<PrivateRoute><UpdateTask></UpdateTask></PrivateRoute>,
-                loader: ({params})=>fetch(`http://localhost:5000/tasks/${params.id}`)
+                loader: ({params})=>fetch(`https://task-board-server-two.vercel.app/tasks/${params.id}`)
               },
             {
                 path: '/login',

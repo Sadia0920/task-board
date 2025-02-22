@@ -29,7 +29,7 @@ export default function AddTask() {
 
         // send data to the server
     try{
-        axios.post('http://localhost:5000/tasks', newTask)
+        axios.post('https://task-board-server-two.vercel.app/tasks', newTask)
         .then(res => {
         // console.log(res.data)
           if(res.data.insertedId){
@@ -41,7 +41,7 @@ export default function AddTask() {
                 })
           }
           form.reset()
-          navigate('/')
+          navigate('/home')
       })
     }
     catch (err) {

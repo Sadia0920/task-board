@@ -30,7 +30,7 @@ export default function UpdateTask() {
 
     // send data to the server
     try{
-        axios.put(`http://localhost:5000/tasks/${_id}`, newUpdatedTask)
+        axios.put(`https://task-board-server-two.vercel.app/tasks/${_id}`, newUpdatedTask)
         .then(res => {
         // console.log(res.data)
           if(res.data.modifiedCount > 0){

@@ -9,7 +9,7 @@ export default function useTask() {
     const { refetch, data: task=[] } = useQuery({
         queryKey: ['task', user?.email],
         queryFn: async()=>{
-            const res = await axios.get(`http://localhost:5000/tasks?email=${user.email}`)
+            const res = await axios.get(`https://task-board-server-two.vercel.app/tasks?email=${user.email}`)
             return res.data;
         }
     })

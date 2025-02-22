@@ -29,7 +29,7 @@ export default function Login() {
         icon: 'success',
         confirmButtonText: 'Done'
       })
-      navigate('/')
+      navigate('/home')
       form.reset()
     })
     .catch(error => {
@@ -53,7 +53,7 @@ export default function Login() {
           email: result.user?.email,
           name: result.user?.displayName,
         }
-        axios.post('http://localhost:5000/users', userInfo)
+        axios.post('https://task-board-server-two.vercel.app/users', userInfo)
         .then(res => {
           // console.log(res.data)
           Swal.fire({
@@ -62,7 +62,7 @@ export default function Login() {
             icon: 'success',
             confirmButtonText: 'Done'
           })
-          navigate('/');
+          navigate('/home');
         })
       })
       .catch(error => {
